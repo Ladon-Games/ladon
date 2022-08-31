@@ -1,11 +1,13 @@
 <template>
-  <Tutorial/>
+  <h1>Hello Nuxt!</h1>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'IndexPage'
-})
+export default {
+  data() {
+    return {
+      test: 'test'
+    }
+  }
+}
 </script>
