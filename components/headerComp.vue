@@ -9,10 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import userImageDefault from "@/static/fox.png"
+import ladonIcon from "./Icons/ladonIcon.vue";
+import userImageDefault from "@/assets/fox.png"
 
 const props = defineProps({
-  userName: { type: String, default: "User" },
+  userName: { type: String, default: "Visitor" },
   userImage: { type: String, default: userImageDefault }
 })
 </script> 
