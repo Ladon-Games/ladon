@@ -10,6 +10,11 @@ import HeaderComp from '~/components/headerComp.vue';
 </script>
 
 <style>
+:root {
+  --green: #3AB926;
+  --pink: #FF36A3;
+}
+
 body,
 html {
   background-color: #D9D9D9;
@@ -17,10 +22,10 @@ html {
 }
 
 ._green {
-  color: #3AB926 !important
+  color: var(--green) !important
 }
 
 ._pink {
-  color: #FF36A3 !important
+  color: var(--pink) !important
 }
 </style>

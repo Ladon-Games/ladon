@@ -1,7 +1,7 @@
 <template>
   <div class="_o-layout__item _tac _mvxxs">
     <span :class="props.graphContent ? '_df' : ''" class="_bgwhite _p _bdrs4 _elevation2">
-      <span :class="props.graphContent ? '_6/12' : ''">
+      <span :class="props.graphContent ? '_4/12' : ''">
         {{ props.simpleContent.topText }}
         <strong class="_db _fz24 _pvxs"
           :class="props.simpleContent.specialColor ? `_${props.simpleContent.specialColor}` : ''">
@@ -13,7 +13,10 @@
         {{ props.simpleContent.bottomText }}
       </span>
 
-      <span v-if="props.graphContent" class="_6/12">
+      <PizzaGraph v-if="props.graphContent" :first-number="props.simpleContent.mainValue"
+        :second-number="props.graphContent.mainValue" />
+
+      <span v-if="props.graphContent" class="_4/12">
         {{ props.graphContent.topText }}
         <strong class="_db _fz24 _pvxs"
           :class="props.graphContent.specialColor ? `_${props.graphContent.specialColor}` : ''">
@@ -30,6 +33,7 @@
 
 <script setup lang="ts">
 import { PropType } from 'vue';
+import PizzaGraph from './pizzaGraph.vue';
 
 interface IContent {
   topText: string,
