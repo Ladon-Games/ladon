@@ -101,20 +101,35 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
 import BoxData from '~/components/boxData.vue';
 import { playerInfo } from '~/interfaces/playerInfo';
 
-const playerInfos: playerInfo = {
-  totalGames: 1958,
-  singlePlayer: 1467,
-  multiPlayer: 491,
-  currentlyValue: 7580,
-  lowestValue: 3500,
-  currency: "US$",
-  gamesPlayed: 491,
-  gamesNotPlayed: 1467,
-  platinum: 15,
-  totalHours: 3580,
-  averageHour: 50
-}
+const playerInfos = ref<playerInfo>({
+  totalGames: 0,
+  singlePlayer: 0,
+  multiPlayer: 0,
+  currentlyValue: 0,
+  lowestValue: 0,
+  currency: 'USD',
+  gamesPlayed: 0,
+  gamesNotPlayed: 0,
+  platinum: 0,
+  totalHours: 0,
+  averageHour: 0,
+});
+
+onMounted( async () => {
+  try {
+    const getPlayerProfileInfos = fetch('/api/getPlayerProfileInfos').then(res => res.json());
+    const getPlayerGames = fetch('/api/getPlayerGames').then(res => res.json());
+
+    Promise.all([getPlayerProfileInfos, getPlayerGames]).then(values => {
+      const [playerProfileInfos, playerGames] = values;
+    })
+
+  } catch(e) {
+    console.log('error: ', e)
+  }
+});
 </script>
