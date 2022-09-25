@@ -1,13 +1,6 @@
 <template>
-  <div class="_o-wrapper">
-    <HeaderComp />
-    <Nuxt />
-  </div>
+  <Nuxt />
 </template>
-
-<script setup lang="ts">
-import HeaderComp from '~/components/headerComp.vue';
-</script>
 
 <style>
 :root {

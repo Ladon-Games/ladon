@@ -65,7 +65,6 @@ app.get("/getPlayerGames", async (req, res) => {
   //}));
 
   res.status(200).json({
-    totalGames: 10,
     gameList: [
       {
         "appid": 92,
@@ -137,7 +136,13 @@ app.get("/getPlayerGames", async (req, res) => {
         "achievements": { "total": 20, "achieved": 20 },
         "price": { "actual": 80, "lowest": 13 }
       }
-    ]
+    ],
+    totalGames: 20,
+    totalGamesPlayed: 10,
+    gamesPlatined: 10,
+    totalHoursPlayed: 10,
+    accountValue: 10,
+    lowestAccountValue: 10
   });
 })
 

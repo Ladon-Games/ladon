@@ -1,13 +1,21 @@
-export interface playerInfo {
-  totalGames: number;
-  singlePlayer: number;
-  multiPlayer: number;
-  currentlyValue: number;
-  lowestValue: number;
-  currency: string;
-  gamesPlayed: number;
-  gamesNotPlayed: number;
-  platinum: number;
-  totalHours: number;
-  averageHour: number;
+export interface IPlayerProfileInfo {
+  userName: string,
+  profileUrl: string,
+  userProfilePic: string,
+  profileCreated: number,
+  countryCode: string
+}
+
+interface IGames {
+
+}
+
+export interface IPlayerGamesData {
+  gameList: IGames,
+  totalGames: number,
+  totalGamesPlayed: number,
+  gamesPlatined: number,
+  totalHoursPlayed: number,
+  accountValue: number,
+  lowestAccountValue: number,
 }

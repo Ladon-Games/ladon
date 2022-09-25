@@ -21,8 +21,8 @@ watch(
 
 function calcPercentage(firstNumber: number, secondNumber: number) {
   const totalValue = firstNumber + secondNumber;
-  const minorPercentage = totalValue / secondNumber * 10
-  return minorPercentage + '%';
+  const secondPercentage = (secondNumber * 100) / totalValue;
+  return secondPercentage + "%"
 }
 
 </script>

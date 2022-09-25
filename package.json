@@ -12,6 +12,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.19.3",
     "express": "^4.18.1",
+    "got": "^12.5.0",
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/dotenv": "^1.4.1",
     "my-itcss": "^1.3.8"
   }
 }
