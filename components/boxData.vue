@@ -1,6 +1,6 @@
 <template>
   <div class="_o-layout__item _tac _mvxxs">
-    <span :class="props.graphContent ? '_df' : ''" class="_bgwhite _p _bdrs4 _elevation2">
+    <span :class="props.graphContent ? '_df _jcc' : ''" class="_bgwhite _p _bdrs4 _elevation2">
       <span :class="props.graphContent ? '_4/12' : ''">
         {{ props.simpleContent.topText }}
         <strong class="_db _fz24 _pvxs"
@@ -14,7 +14,7 @@
       </span>
 
       <PizzaGraph v-if="props.graphContent" :first-number="props.simpleContent.mainValue"
-        :second-number="props.graphContent.mainValue" />
+        :second-number="props.graphContent.mainValue"/>
 
       <span v-if="props.graphContent" class="_4/12">
         {{ props.graphContent.topText }}
@@ -38,7 +38,7 @@ import PizzaGraph from './pizzaGraph.vue';
 interface IContent {
   topText: string,
   bottomText: string,
-  mainValue: string | number,
+  mainValue: number,
   specialColor?: string,
   currency?: string,
 }
