@@ -4,7 +4,7 @@
 
     <main class="_o-layout _o-layout--xs">
       <BoxData 
-        class="_4/12"
+        class="_1/1 _4/12@tabletH"
         type="simple"
         :simple-content="{
           topText: 'You have',
@@ -14,7 +14,7 @@
       />
 
       <BoxData 
-        class="_8/12"
+        class="_1/1 _8/12@tabletH"
         type="simple"
         :simple-content="{
           topText: 'You have',
@@ -31,7 +31,7 @@
       />
 
       <BoxData
-        class="_6/12"
+        class="_1/1 _6/12@tabletV _6/12@tabletH"
         type="simple"
         :simple-content="{
           topText: 'Your Account Value is',
@@ -43,7 +43,7 @@
       />
 
       <BoxData
-        class="_6/12"
+        class="_1/1 _6/12@tabletV _6/12@tabletH"
         type="simple"
         :simple-content="{
           topText: 'But the lowest price was',
@@ -55,7 +55,7 @@
       />
 
       <BoxData 
-        class="_8/12"
+        class="_1/1 _8/12@tabletH"
         type="simple"
         :simple-content="{
           topText: 'You have played',
@@ -72,7 +72,7 @@
       />
 
       <BoxData
-        class="_4/12"
+        class="_1/1 _4/12@tabletH"
         type="simple"
         :simple-content="{
           topText: 'You have Platined',
@@ -82,7 +82,7 @@
       />
 
       <BoxData
-        class="_6/12"
+        class="_1/1 _6/12@tabletV _6/12@tabletH"
         type="simple"
         :simple-content="{
           topText: 'You already Spent',
@@ -92,7 +92,7 @@
       />
 
       <BoxData
-        class="_6/12"
+        class="_1/1 _6/12@tabletV _6/12@tabletH"
         type="simple"
         :simple-content="{
           topText: 'You Spend a average of',
