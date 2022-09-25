@@ -3,43 +3,18 @@ const express = require('express')
 const app = express()
 
 const steamKey = process.env.STEAM_KEY;
-const userId = '76561198115005022'
-/* 
-
-Data to get
-
-userName                GETTED
-userProfilePic          GETTED
-gameList                GETTED
-totalGames              GETTED
-singlePlayer
-multiPlayer
-currentlyValue
-lowestValue
-currency
-gamesPlayed             GETTED
-gamesNotPlayed          GETTED
-platinum                GETTED
-numAchievementsDone
-numAchievementsUndone
-totalPlaytime           
-fortnightPlaytime
-totalHours              
-averageHour             
-
-*/
 
 app.get("/getPlayerProfileInfos", async (req, res) => {
-  const url = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamKey}&steamids=${userId}`;
-  let playerProfileInfos = await got(url).json();
-  playerProfileInfos = playerProfileInfos.response.players[0];
+  //const url = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamKey}&steamids=${userId}`;
+  //let playerProfileInfos = await got(url).json();
+  //playerProfileInfos = playerProfileInfos.response.players[0];
 
   res.status(200).json({
-    userName: playerProfileInfos.personaname,
-    profileUrl: playerProfileInfos.profileurl,
-    userProfilePic: playerProfileInfos.avatarmedium,
-    profileCreated: playerProfileInfos.timecreated,
-    countryCode: playerProfileInfos.loccountrycode
+    userName: 'Steam_User',
+    profileUrl: 'https://store.steampowered.com/',
+    userProfilePic: 'https://avatars.akamai.steamstatic.com/9c6f71e9344dbe81e7f14968e7d31bbce26f8a85_medium.jpg',
+    profileCreated: 1234567890,
+    countryCode: 'BR'
   });
 })
 
@@ -80,31 +55,89 @@ async function getDataGame(game) {
   }
 }
 
-function getTotalDatas(games) {
-  const totalGames = games.game_count;
-
-  games.games.forEach() {
-    //totalPlatinums
-    //totalAchieved
-    //totalHoursPlayed
-    //averageHour
-  }
-}
-
 app.get("/getPlayerGames", async (req, res) => {
-  const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${steamKey}&steamid=${userId}&include_appinfo=true&include_free_sub=true`;
-  let playerGames = await got(url).json();
-  playerGames = playerGames.response;
+  //const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${steamKey}&steamid=${userId}&include_appinfo=true&include_free_sub=true`;
+  //let playerGames = await got(url).json();
+  //playerGames = playerGames.response;
 
-  const allGames = await Promise.all(playerGames.games.map(async game => {
-    return getDataGame(game);
-  }));
-
-  const totalDatas = getTotalDatas(playerGames);
+  //const allGames = await Promise.all(playerGames.games.map(async game => {
+  //  return getDataGame(game);
+  //}));
 
   res.status(200).json({
-    totalGames: playerGames.game_count,
-    gameList: allGames,
+    totalGames: 10,
+    gameList: [
+      {
+        "appid": 92,
+        "name": "Codename Gordon",
+        "playtime_forever": 0,
+        "achievements": { "total": 20, "achieved": 8 },
+        "price": { "actual": 80, "lowest": 13 }
+      },
+      {
+        "appid": 211,
+        "name": "Source SDK",
+        "playtime_forever": 0,
+        "achievements": { "total": 20, "achieved": 8 },
+        "price": { "actual": 80, "lowest": 13 }
+      },
+      {
+        "appid": 440,
+        "name": "Team Fortress 2",
+        "playtime_forever": 0,
+        "achievements": { "total": 20, "achieved": 8 },
+        "price": { "actual": 80, "lowest": 13 }
+      },
+      {
+        "appid": 570,
+        "name": "Dota 2",
+        "playtime_forever": 0,
+        "achievements": { "total": 7, "achieved": 7 },
+        "price": { "actual": 80, "lowest": 13 }
+      },
+      {
+        "appid": 630,
+        "name": "Alien Swarm",
+        "playtime_forever": 0,
+        "achievements": { "total": 20, "achieved": 8 },
+        "price": { "actual": 80, "lowest": 13 }
+      },
+      {
+        "appid": 1840,
+        "name": "Source Filmmaker",
+        "playtime_forever": 0,
+        "achievements": { "total": 20, "achieved": 8 },
+        "price": { "actual": 80, "lowest": 13 }
+      },
+      {
+        "appid": 8230,
+        "name": "Sam & Max 104: Abe Lincoln Must Die!",
+        "playtime_forever": 0,
+        "achievements": { "total": 20, "achieved": 8 },
+        "price": { "actual": 80, "lowest": 13 }
+      },
+      {
+        "appid": 17510,
+        "name": "Age of Chivalry",
+        "playtime_forever": 0,
+        "achievements": { "total": 10, "achieved": 10 },
+        "price": { "actual": 80, "lowest": 13 }
+      },
+      {
+        "appid": 17520,
+        "name": "Synergy",
+        "playtime_forever": 101,
+        "achievements": { "total": 20, "achieved": 8 },
+        "price": { "actual": 80, "lowest": 13 }
+      },
+      {
+        "appid": 17530,
+        "name": "D.I.P.R.I.P. Warm Up",
+        "playtime_forever": 0,
+        "achievements": { "total": 20, "achieved": 20 },
+        "price": { "actual": 80, "lowest": 13 }
+      }
+    ]
   });
 })
 
