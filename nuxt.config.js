@@ -49,7 +49,9 @@ export default {
   },
 
   serverMiddleware: [
-    '@/api/index.js'
+    '~/api',
+    '~/api/getPlayerProfileInfos',
+    '~/api/getPlayerGames'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
