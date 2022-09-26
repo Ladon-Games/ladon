@@ -49,7 +49,7 @@ export default {
   },
 
   serverMiddleware: [
-    '~/pages/api/index.js'
+    '@/api/index.js'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
