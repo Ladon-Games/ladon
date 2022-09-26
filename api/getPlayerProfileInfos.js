@@ -1,16 +1,9 @@
-import got from 'got';
 import express from 'express';
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
-const steamKey = process.env.STEAM_KEY;
-
-app.get("/", async (req, res) => {
-  //const url = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamKey}&steamids=${userId}`;
-  //let playerProfileInfos = await got(url).json();
-  //playerProfileInfos = playerProfileInfos.response.players[0];
-
+app.get('/getPlayerProfileInfos', async (req, res) => {
   res.send({
     userName: 'Steam_User',
     profileUrl: 'https://store.steampowered.com/',
@@ -18,6 +11,6 @@ app.get("/", async (req, res) => {
     profileCreated: 1234567890,
     countryCode: 'BR'
   });
-})
+});
 
-export default { path: '/api/getPlayerProfileInfos', handler: app }
+module.exports = app

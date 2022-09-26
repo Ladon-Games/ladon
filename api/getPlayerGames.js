@@ -1,10 +1,7 @@
-import got from 'got';
 import express from 'express';
 
-const app = express()
-app.use(express.json())
-
-const steamKey = process.env.STEAM_KEY;
+const app = express();
+app.use(express.json());
 
 async function getDataGame(game) {
   var price = await got(`https://partner.steam-api.com/ISteamUser/GetAppPriceInfo/v1/?key=${steamKey}&steamid=${userId}&appids=${game.appid}`).json();
@@ -43,15 +40,7 @@ async function getDataGame(game) {
   }
 }
 
-app.get("/", async (req, res) => {
-  //const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${steamKey}&steamid=${userId}&include_appinfo=true&include_free_sub=true`;
-  //let playerGames = await got(url).json();
-  //playerGames = playerGames.response;
-
-  //const allGames = await Promise.all(playerGames.games.map(async game => {
-  //  return getDataGame(game);
-  //}));
-
+app.get('/getPlayerGames', async (req, res) => {
   res.send({
     gameList: [
       {
@@ -132,6 +121,6 @@ app.get("/", async (req, res) => {
     accountValue: 10,
     lowestAccountValue: 10
   });
-})
+});
 
-export default { path: '/api/getPlayerGames', handler: app }
+module.exports = app
