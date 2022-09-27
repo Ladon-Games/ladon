@@ -8,5 +8,23 @@
         "serverFiles": ["package.json"]
       }
     }
+  ],
+  "routes": [
+    {
+      "src": "~/api/getPlayerGames.js",
+      "continue": true,
+      "headers": {
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Service-Worker-Allowed": "/"
+      }
+    },
+    {
+      "src": "~/api/getPlayerProfileInfos.js",
+      "continue": true,
+      "headers": {
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Service-Worker-Allowed": "/"
+      }
+    }
   ]
 }
