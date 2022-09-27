@@ -3,43 +3,6 @@ import express from 'express';
 const app = express();
 app.use(express.json());
 
-async function getDataGame(game) {
-  var price = await got(`https://partner.steam-api.com/ISteamUser/GetAppPriceInfo/v1/?key=${steamKey}&steamid=${userId}&appids=${game.appid}`).json();
-  console.log('a');
-  console.log(price);
-
-  try {
-    var achievements = await got(`https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/?key=${steamKey}&steamid=${userId}&appid=${game.appid}`).json()
-    achievements = achievements.playerstats.achievements;
-
-    const numberAchievements = achievements.length;
-
-    const totalAchieved = achievements.reduce(
-      (pVal, achievement) => pVal + achievement.achieved, 0
-    )
-
-    return {
-      appid: game.appid,
-      name: game.name,
-      playtime_forever: game.playtime_forever,
-      totalAchievements: numberAchievements,
-      locked: numberAchievements - totalAchieved,
-      unlocked: totalAchieved,
-      platined: numberAchievements == totalAchieved
-    }
-  } catch (e) {
-    return {
-      appid: game.appid,
-      name: game.name,
-      playtime_forever: game.playtime_forever,
-      totalAchievements: 0,
-      locked: 0,
-      unlocked: 0,
-      platined: false
-    }
-  }
-}
-
 app.get('/getPlayerGames', async (req, res) => {
   res.send({
     gameList: [
